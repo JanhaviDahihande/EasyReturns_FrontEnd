@@ -168,8 +168,9 @@
               </div>
               <div class="row">
                 <div class="input-field col s3">
-                  <input placeholder="" id="zip_to" type="text" class="validate">
-                  <label for="zip_to">Zip Code</label>
+                  <select class="browser-default" id="zip_to">
+                    <option value="" selected="selected">-- Select Zip--</option>
+                  </select>
                 </div>
               </div>
             </form>
@@ -217,7 +218,20 @@
     "USA": {
       "California": {
         "Los Angeles": ["90001", "90002", "90003", "90004"],
-        "San Diego": ["92093", "92101"]
+        "San Diego": ["92093", "92101", "92101", "92101"],
+        "Nevada City": ["92033", "92201", "92101", "92601"],
+        "Oakdale": ["92077", "92166", "92155", "92144"],
+        "Upland": ["92033", "92132", "92131", "92154"],
+        "East Nicolaus": ["92088", "92145", "92167"],
+        "Kensington": ["92087", "92143", "92127"],
+        "Irwin": ["92093", "92101", "92176", "92109", "92148"],
+        "North San Juan": ["92093", "92101", "92198"],
+        "Ignacio": ["92093", "92111", "92101"],
+        "Casa Conejo": ["92093", "92133", "92101"],
+        "Pope Valley": ["92093", "92101"],
+        "Mount Hermon": ["92093", "92101"],
+        "Lakewood": ["92093", "92101"],
+
       },
       "Florida": {
         "Lakeland": ["75201", "75202"],
@@ -337,6 +351,137 @@
     }
   });
 
+  var countryStateInfo1 = {
+    "USA": {
+      "California": {
+        "Los Angeles": ["90001", "90002", "90003", "90004"],
+        "San Diego": ["92093", "92101", "92101", "92101"],
+        "Nevada City": ["92033", "92201", "92101", "92601"],
+        "Oakdale": ["92077", "92166", "92155", "92144"],
+        "Upland": ["92033", "92132", "92131", "92154"],
+        "East Nicolaus": ["92088", "92145", "92167"],
+        "Kensington": ["92087", "92143", "92127"],
+        "Irwin": ["92093", "92101", "92176", "92109", "92148"],
+        "North San Juan": ["92093", "92101", "92198"],
+        "Ignacio": ["92093", "92111", "92101"],
+        "Casa Conejo": ["92093", "92133", "92101"],
+        "Pope Valley": ["92093", "92101"],
+        "Mount Hermon": ["92093", "92101"],
+        "Lakewood": ["92093", "92101"],
+
+      },
+      "Florida": {
+        "Lakeland": ["75201", "75202"],
+        "Citrus Hills": ["73301", "73344"],
+        "River Park": ["75034", "75077"],
+        "Alafaya": ["75000", "75022"]
+      },
+      "Hawaii": {
+        "Lihue": ["96720", "96721", "96722"],
+        "Waiakoa": ["96221","96321","91721","98721","96721"],
+        "Hauula": ["96764", "96769"],
+        "Omao": ["96788", "96700"],
+        "Kamalo": ["96555", "96666"]
+      },
+      "North Carolina": {
+        "Four Oaks": ["28339", "28333"],
+        "Bailey": ["24339", "23539"],
+        "Poplar": ["21039", "29939"],
+        "Goldston": ["20939", "28879", "28333"]
+      }
+      ,
+      "New Mexico": {
+        "Gascon": ["87038", "87040"],
+        "Raton": ["87529", "87514", "87514"],
+        "Fence Lake": ["87529", "87514", "87514"],
+        "Pleasant Hill": ["87412", "87419"]
+      },
+      "Texas": {
+        "Dallas": ["75201", "75202"],
+        "Austin": ["73301", "73344"]
+      },
+      "Washington": {
+        "Renton": ["98059", "98058", "98057", "98056", "98055"],
+        "Waverly": ["99012", "99039"]
+      },
+      "Wisconsin": {
+        "Merton": ["53089", "53029", "53056"],
+        "Kaukauna": ["92093", "92101"]
+      },
+      "Wyoming": {
+        "Reliance": ["82943", "82901"],
+        "Ethete": ["82510", "82520"]
+      },
+    },
+    "India": {
+      "Assam": {
+        "Dispur": ["781005"],
+        "Guwahati" : ["781030", "781030"]
+      },
+      "Gujarat": {
+        "Vadodara" : ["390011", "390020"],
+        "Surat" : ["395006", "395002"]
+      }
+    }
+  };
+
+
+    //From
+
+    //Get html elements
+    //var countySel = document.getElementById("countySel");
+    var stateSel1 = document.getElementById("state_to");
+    var citySel1 = document.getElementById("city_to");
+    var zipSel1 = document.getElementById("zip_to");
+
+    //Load countries
+    //for (var country in countryStateInfo1) {
+    // countySel.options[countySel.options.length] = new Option(country, country);
+    // }
+
+    //County Changed
+    // countySel.onchange = function () {
+    //
+    //   stateSel.length = 1; // remove all options bar first
+    //   //citySel.length = 1; // remove all options bar first
+    //   zipSel.length = 1; // remove all options bar first
+    //
+    //   if (this.selectedIndex < 1)
+    //     return; // done
+
+    for (var state in countryStateInfo1["USA"]) {
+      stateSel1.options[stateSel1.options.length] = new Option(state, state);
+    }
+    //};
+
+    //State Changed
+    stateSel1.onchange = function () {
+
+      citySel1.length = 1; // remove all options bar first
+      zipSel1.length = 1; // remove all options bar first
+
+      if (this.selectedIndex < 1)
+        return; // done
+
+      for (var city in countryStateInfo1["USA"][this.value]) {
+        citySel1.options[citySel1.options.length] = new Option(city, city);
+      }
+    };
+
+    //City Changed
+    citySel1.onchange = function () {
+      zipSel1.length = 1; // remove all options bar first
+
+      if (this.selectedIndex < 1)
+        return; // done
+
+      var zips1 = countryStateInfo1["USA"][stateSel1.value][this.value];
+      for (var i = 0; i < zips1.length; i++) {
+        zipSel1.options[zipSel1.options.length] = new Option(zips1[i], zips1[i]);
+      }
+
+  };
+
 
 
   window.onload = function () {
@@ -346,7 +491,7 @@
 
 
 </script>
-
+</div>
 </body>
 
 </html>
