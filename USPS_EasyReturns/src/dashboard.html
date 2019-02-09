@@ -62,11 +62,11 @@
       12-columns-wide on small screens  -->
     <ul id="slide-out" class="sidenav sidenav-fixed">
       <li><div class="user-view">
-        <div class="background red darken-2">
+        <div class="background  indigo darken-4">
         </div>
         <a href="#user"><img class="circle" src="images/usps.jpg"></a>
-        <a href="#name"><span class="black-text name">John Doe</span></a>
-        <a href="#email"><span class="black-text email">jdandturk@gmail.com</span></a>
+        <a href="#name"><span class="white-text name">John Doe</span></a>
+        <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
       </div></li>
 
       <li><a href="dashboard.html"><i class="material-icons">dashboard</i>Dashboard</a></li>
@@ -85,84 +85,110 @@
       9-columns-wide on large screens,
       8-columns-wide on medium screens,
       12-columns-wide on small screens  -->
-    <ul class="collapsible">
-      <li class="active">
-        <div class="collapsible-header">
-          <i class="material-icons">filter_drama</i>From
-        </div>
-        <div class="collapsible-body">
           <div class="row">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s6">
-                  <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                  <label for="first_name">First Name</label>
-                </div>
-                <div class="input-field col s6">
-                  <input id="last_name" type="text" class="validate">
-                  <label for="last_name">Last Name</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-                  <label for="disabled">Disabled</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="password" type="password" class="validate">
-                  <label for="password">Password</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="email" type="email" class="validate">
-                  <label for="email">Email</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col s12">
-                  This is an inline input field:
-                  <div class="input-field inline">
-                    <input id="email_inline" type="email" class="validate">
-                    <label for="email_inline">Email</label>
-                    <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </li>
-      <li class="active">
-        <div class="collapsible-header"><i class="material-icons">place</i>To</div>
-        <div class="collapsible-body">
-          <div class="row">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s6">
-                  <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                  <label for="first_name">First Name</label>
-                </div>
-                <div class="input-field col s6">
-                  <input id="last_name" type="text" class="validate">
-                  <label for="last_name">Last Name</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <input id="email" type="email" class="validate">
-                  <label for="email">Email</label>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </li>
-    </ul>
+            <form class="col s10">
 
+                  <div style="margin-top: 50px; padding: 20px" class="col s12 indigo darken-4 white-text">From</div>
+
+              <div class="row">
+                <div class="input-field col s6">
+                  <input placeholder="" id="first_name_from" type="text" class="validate">
+                  <label for="first_name_from">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                  <input id="last_name_from" type="text" class="validate">
+                  <label for="last_name_from">Last Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="address_line_1_from" class="materialize-textarea"></textarea>
+                  <label for="address_line_1_from">Address Line 1</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="address_line_2_from" class="materialize-textarea"></textarea>
+                  <label for="address_line_2_from">Address Line 2</label>
+                </div>
+              </div>
+              <div class="row">
+
+                <div class="input-field col s6">
+                <select class="browser-default" id="stateSel">
+                  <option value="" selected="selected">-- Select State--</option>
+                </select>
+                </div>
+              <div class="input-field col s6">
+                <select class="browser-default" id="countySel">
+                  <option value="" selected="selected">-- Select County--</option>
+                </select>
+              </div>
+              </div>
+              <div class="row">
+              <div class="input-field col s3">
+                <input placeholder="" id="zip_from" type="text" class="validate">
+                <label for="zip_from">Zip Code</label>
+              </div>
+              </div>
+
+              <div style="padding: 20px" class="col s12 indigo darken-4 white-text">To</div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input placeholder="" id="first_name_to" type="text" class="validate">
+                  <label for="first_name_to">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                  <input id="last_name_to" type="text" class="validate">
+                  <label for="last_name_to">Last Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="address_line_1_to" class="materialize-textarea"></textarea>
+                  <label for="address_line_1_to">Address Line 1</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="address_line_2_to" class="materialize-textarea"></textarea>
+                  <label for="address_line_2_to">Address Line 2</label>
+                </div>
+              </div>
+              <div class="row">
+
+                <div class="input-field col s6">
+                  <select class="browser-default" id="state_to">
+                    <option value="" disabled selected>State</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                  </select>
+                </div>
+                <div class="input-field col s6">
+                  <select class="browser-default" id="city_to">
+                    <option value="" disabled selected>City</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s3">
+                  <input placeholder="" id="zip_to" type="text" class="validate">
+                  <label for="zip_to">Zip Code</label>
+                </div>
+              </div>
+            </form>
+          </div>
+
+    <div class="row center">
+    <a class="waves-effect waves-light btn-large indigo darken-4 white-text">Generate Code</a>
+    </div>
   </div>
+
+
 
 </div>
 
@@ -187,17 +213,105 @@
 <script type="text/javascript" src="js/materialize.min.js"></script>
 <script type="text/javascript">
 
+
   var elem = document.querySelector('.collapsible');
   var instance = M.Collapsible.init(elem, {
     accordion: false
   });
 
+
+  var countryStateInfo = {
+    "USA": {
+      "California": {
+        "Los Angeles": ["90001", "90002", "90003", "90004"],
+        "San Diego": ["92093", "92101"]
+      },
+      "Texas": {
+        "Dallas": ["75201", "75202"],
+        "Austin": ["73301", "73344"]
+      }
+    },
+    "India": {
+      "Assam": {
+        "Dispur": ["781005"],
+        "Guwahati" : ["781030", "781030"]
+      },
+      "Gujarat": {
+        "Vadodara" : ["390011", "390020"],
+        "Surat" : ["395006", "395002"]
+      }
+    }
+  }
+
   $(document).ready(function(){
     $('.sidenav').sidenav();
     $('.collapsible').collapsible();
+    $('select').material_select();
+
+    //Get html elements
+    var countySel = document.getElementById("countySel");
+    var stateSel = document.getElementById("stateSel");
+    var citySel = document.getElementById("citySel");
+    var zipSel = document.getElementById("zipSel");
+
+    //Load countries
+    for (var country in countryStateInfo) {
+      countySel.options[countySel.options.length] = new Option(country, country);
+    }
+
+    //County Changed
+    countySel.onchange = function () {
+
+      stateSel.length = 1; // remove all options bar first
+      citySel.length = 1; // remove all options bar first
+      zipSel.length = 1; // remove all options bar first
+
+      if (this.selectedIndex < 1)
+        return; // done
+
+      for (var state in countryStateInfo[this.value]) {
+        stateSel.options[stateSel.options.length] = new Option(state, state);
+      }
+    }
+
+    //State Changed
+    stateSel.onchange = function () {
+
+      citySel.length = 1; // remove all options bar first
+      zipSel.length = 1; // remove all options bar first
+
+      if (this.selectedIndex < 1)
+        return; // done
+
+      for (var city in countryStateInfo["USA"][this.value]) {
+        citySel.options[citySel.options.length] = new Option(city, city);
+      }
+    }
+
+    //City Changed
+    citySel.onchange = function () {
+      zipSel.length = 1; // remove all options bar first
+
+      if (this.selectedIndex < 1)
+        return; // done
+
+      var zips = countryStateInfo["USA"][stateSel.value][this.value];
+      for (var i = 0; i < zips.length; i++) {
+        zipSel.options[zipSel.options.length] = new Option(zips[i], zips[i]);
+      }
+    }
   });
 
+
+
+  window.onload = function () {
+
+
+  }
+
+
 </script>
+
 </body>
 
 </html>
