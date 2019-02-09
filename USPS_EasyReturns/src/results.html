@@ -77,7 +77,7 @@
       <td>$0.87</td>
       <td>
         <label>
-          <input name="group1" type="radio" checked />
+          <input name="group1" value="0.00" type="radio" checked />
           <span>$25</span>
         </label>
       </td>
@@ -88,7 +88,7 @@
       <td>$3.76</td>
       <td>
         <label>
-          <input name="group1" type="radio" checked />
+          <input name="group1" value="0.05" type="radio" checked />
           <span>$50</span>
         </label>
       </td>
@@ -131,6 +131,20 @@
 
 <script>
 
+  var radios = document.getElementsByName('group1');
+  var value_of_radio = 0.00;
+  for (var i = 0, length = radios.length; i < length; i++)
+  {
+    if (radios[i].checked)
+    {
+      // do whatever you want with the checked radio
+
+        value_of_radio = radios[i].value;
+      // only one radio can be logically checked, don't check the rest
+      break;
+    }
+  }
+
   // Render the PayPal button
 
   paypal.Button.render({
@@ -143,8 +157,8 @@
 
     style: {
       label: 'checkout',
-      size:  'small',    // small | medium | large | responsive
-      shape: 'pill',     // pill | rect
+      size:  'large',    // small | medium | large | responsive
+      shape: 'rect',     // pill | rect
       color: 'gold'      // gold | blue | silver | black
     },
 
@@ -161,7 +175,7 @@
         payment: {
           transactions: [
             {
-              amount: { total: '0.01', currency: 'USD' }
+              amount: { total: value_of_radio, currency: 'USD' }
             }
           ]
         }
@@ -171,6 +185,7 @@
     onAuthorize: function(data, actions) {
       return actions.payment.execute().then(function() {
         window.alert('Payment Complete!');
+        window.location.href = "dashboard.html"
       });
     }
 
@@ -178,6 +193,9 @@
 
 </script>
 
+<script>
+
+</script>
 <!--JavaScript at end of body for optimized loading-->
 <script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
