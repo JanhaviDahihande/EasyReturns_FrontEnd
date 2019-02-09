@@ -45,16 +45,18 @@
 
 
 <div class="container">
-  <!-- Page Content goes here -->
+
+
+  <div class="container">
+    <!-- Page Content goes here -->
 
 
 
-</div>
+  </div>
 
-<div class="row">
+  <div class="row">
 
-  <div class="col s12 m4 l3"> <!-- Note that "m4 l3" was added -->
-    <!-- Grey navigation panel
+    <div class="col s12 m4 l3"> <!-- Note that "m4 l3" wGrey navigation panel
 
           This content will be:
       3-columns-wide on large screens,
@@ -127,8 +129,10 @@
               </div>
               <div class="row">
               <div class="input-field col s3">
-                <input placeholder="" id="zipSel" type="text" class="validate">
-                <label for="zipSel">Zip Code</label>
+                <select class="browser-default" id="zipSel">
+                  <option value="" selected="selected">-- Select Zip--</option>
+                </select>
+                <!--<label for="zipSel">Zip Code</label>-->
               </div>
               </div>
 
@@ -221,10 +225,48 @@
         "Los Angeles": ["90001", "90002", "90003", "90004"],
         "San Diego": ["92093", "92101"]
       },
+      "Florida": {
+        "Lakeland": ["75201", "75202"],
+        "Citrus Hills": ["73301", "73344"],
+        "River Park": ["75034", "75077"],
+        "Alafaya": ["75000", "75022"]
+      },
+      "Hawaii": {
+        "Lihue": ["96720", "96721", "96722"],
+        "Waiakoa": ["96221","96321","91721","98721","96721"],
+        "Hauula": ["96764", "96769"],
+        "Omao": ["96788", "96700"],
+        "Kamalo": ["96555", "96666"]
+      },
+      "North Carolina": {
+        "Four Oaks": ["28339", "28333"],
+        "Bailey": ["24339", "23539"],
+        "Poplar": ["21039", "29939"],
+        "Goldston": ["20939", "28879", "28333"]
+      }
+      ,
+      "New Mexico": {
+        "Gascon": ["87038", "87040"],
+        "Raton": ["87529", "87514", "87514"],
+        "Fence Lake": ["87529", "87514", "87514"],
+        "Pleasant Hill": ["87412", "87419"]
+      },
       "Texas": {
         "Dallas": ["75201", "75202"],
         "Austin": ["73301", "73344"]
-      }
+      },
+      "Washington": {
+        "Renton": ["98059", "98058", "98057", "98056", "98055"],
+        "Waverly": ["99012", "99039"]
+      },
+      "Wisconsin": {
+        "Merton": ["53089", "53029", "53056"],
+        "Kaukauna": ["92093", "92101"]
+      },
+      "Wyoming": {
+        "Reliance": ["82943", "82901"],
+        "Ethete": ["82510", "82520"]
+      },
     },
     "India": {
       "Assam": {
