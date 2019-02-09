@@ -82,48 +82,48 @@
       8-columns-wide on medium screens,
       12-columns-wide on small screens  -->
           <div class="row">
-            <form class="col s10">
+            <form class="col s10" action="http://localhost:5000/result" method="POST">
 
                   <div style="margin-top: 50px; padding: 20px" class="col s12 indigo darken-4 white-text">From</div>
 
               <div class="row">
                 <div class="input-field col s6">
-                  <input placeholder="" id="first_name_from" type="text" class="validate">
+                  <input placeholder="" id="first_name_from" name="from_fisrtname" type="text" class="validate">
                   <label for="first_name_from">First Name</label>
                 </div>
                 <div class="input-field col s6">
-                  <input id="last_name_from" type="text" class="validate">
+                  <input id="last_name_from" type="text" name="from_lastname" class="validate">
                   <label for="last_name_from">Last Name</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <textarea id="address_line_1_from" class="materialize-textarea"></textarea>
+                  <textarea id="address_line_1_from" name="from_address_1" class="materialize-textarea"></textarea>
                   <label for="address_line_1_from">Address Line 1</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <textarea id="address_line_2_from" class="materialize-textarea"></textarea>
+                  <textarea id="address_line_2_from" name="from_address_2" class="materialize-textarea"></textarea>
                   <label for="address_line_2_from">Address Line 2</label>
                 </div>
               </div>
               <div class="row">
 
                 <div class="input-field col s6">
-                <select class="browser-default" id="state_from">
+                <select class="browser-default" name="from_statename" id="state_from">
                   <option value="" selected="selected">-- Select State--</option>
                 </select>
                 </div>
               <div class="input-field col s6">
-                <select class="browser-default" id="city_from">
+                <select class="browser-default" name="from_cityname" id="city_from">
                   <option value="" selected="selected">-- Select City--</option>
                 </select>
               </div>
               </div>
               <div class="row">
               <div class="input-field col s3">
-                <select class="browser-default" id="zipSel">
+                <select class="browser-default" name="from_zipcode" id="zipSel">
                   <option value="" selected="selected">-- Select Zip--</option>
                 </select>
                 <!--<label for="zipSel">Zip Code</label>-->
@@ -133,57 +133,53 @@
               <div style="padding: 20px" class="col s12 indigo darken-4 white-text">To</div>
               <div class="row">
                 <div class="input-field col s6">
-                  <input placeholder="" id="first_name_to" type="text" class="validate">
+                  <input placeholder="" id="first_name_to" name="to_firstname" type="text" class="validate">
                   <label for="first_name_to">First Name</label>
                 </div>
                 <div class="input-field col s6">
-                  <input id="last_name_to" type="text" class="validate">
+                  <input id="last_name_to" type="text" name="to_lastname" class="validate">
                   <label for="last_name_to">Last Name</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <textarea id="address_line_1_to" class="materialize-textarea"></textarea>
+                  <textarea id="address_line_1_to" name="to_address1" class="materialize-textarea"></textarea>
                   <label for="address_line_1_to">Address Line 1</label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s12">
-                  <textarea id="address_line_2_to" class="materialize-textarea"></textarea>
+                  <textarea id="address_line_2_to" name="to_address2" class="materialize-textarea"></textarea>
                   <label for="address_line_2_to">Address Line 2</label>
                 </div>
               </div>
               <div class="row">
 
                 <div class="input-field col s6">
-                  <select class="browser-default" id="state_to">
+                  <select class="browser-default" name="to_statename" id="state_to">
                     <option value="" selected="selected">-- Select State--</option>
                   </select>
                 </div>
                 <div class="input-field col s6">
-                  <select class="browser-default" id="city_to">
+                  <select class="browser-default" name="to_cityname" id="city_to">
                     <option value="" selected="selected">-- Select City--</option>
                   </select>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col s3">
-                  <select class="browser-default" id="zip_to">
+                  <select class="browser-default" name="to_zipcode" id="zip_to">
                     <option value="" selected="selected">-- Select Zip--</option>
                   </select>
                 </div>
               </div>
+              <div class="row center">
+                <button class="waves-effect waves-light btn-large indigo darken-4 white-text" type="submit">Generate Code</button>
+              </div>
             </form>
           </div>
-
-    <div class="row center">
-    <a class="waves-effect waves-light btn-large indigo darken-4 white-text">Generate Code</a>
+      </div>
     </div>
-  </div>
-
-
-
-</div>
 
 <script src="js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js"></script>
 <script src="https://code.jquery.com/jquery-{{JQUERY_VERSION}}.min.js" integrity="{{JQUERY_SRI_HASH}}" crossorigin="anonymous"></script>
