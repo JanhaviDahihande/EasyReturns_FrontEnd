@@ -115,20 +115,20 @@
               <div class="row">
 
                 <div class="input-field col s6">
-                <select class="browser-default" id="stateSel">
+                <select class="browser-default" id="state_from">
                   <option value="" selected="selected">-- Select State--</option>
                 </select>
                 </div>
               <div class="input-field col s6">
-                <select class="browser-default" id="countySel">
-                  <option value="" selected="selected">-- Select County--</option>
+                <select class="browser-default" id="city_from">
+                  <option value="" selected="selected">-- Select City--</option>
                 </select>
               </div>
               </div>
               <div class="row">
               <div class="input-field col s3">
-                <input placeholder="" id="zip_from" type="text" class="validate">
-                <label for="zip_from">Zip Code</label>
+                <input placeholder="" id="zipSel" type="text" class="validate">
+                <label for="zipSel">Zip Code</label>
               </div>
               </div>
 
@@ -159,18 +159,12 @@
 
                 <div class="input-field col s6">
                   <select class="browser-default" id="state_to">
-                    <option value="" disabled selected>State</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                    <option value="" selected="selected">-- Select State--</option>
                   </select>
                 </div>
                 <div class="input-field col s6">
                   <select class="browser-default" id="city_to">
-                    <option value="" disabled selected>City</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                    <option value="" selected="selected">-- Select City--</option>
                   </select>
                 </div>
               </div>
@@ -195,6 +189,7 @@
 <script src="js/vendor/modernizr-{{MODERNIZR_VERSION}}.min.js"></script>
 <script src="https://code.jquery.com/jquery-{{JQUERY_VERSION}}.min.js" integrity="{{JQUERY_SRI_HASH}}" crossorigin="anonymous"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
 
@@ -241,38 +236,42 @@
         "Surat" : ["395006", "395002"]
       }
     }
-  }
+  };
 
   $(document).ready(function(){
+    console.log("here");
     $('.sidenav').sidenav();
     $('.collapsible').collapsible();
-    $('select').material_select();
+    $('select').formSelect();
+
+
+    //From
 
     //Get html elements
-    var countySel = document.getElementById("countySel");
-    var stateSel = document.getElementById("stateSel");
-    var citySel = document.getElementById("citySel");
+    //var countySel = document.getElementById("countySel");
+    var stateSel = document.getElementById("state_from");
+    var citySel = document.getElementById("city_from");
     var zipSel = document.getElementById("zipSel");
 
     //Load countries
-    for (var country in countryStateInfo) {
-      countySel.options[countySel.options.length] = new Option(country, country);
-    }
+    //for (var country in countryStateInfo) {
+     // countySel.options[countySel.options.length] = new Option(country, country);
+   // }
 
     //County Changed
-    countySel.onchange = function () {
+    // countySel.onchange = function () {
+    //
+    //   stateSel.length = 1; // remove all options bar first
+    //   //citySel.length = 1; // remove all options bar first
+    //   zipSel.length = 1; // remove all options bar first
+    //
+    //   if (this.selectedIndex < 1)
+    //     return; // done
 
-      stateSel.length = 1; // remove all options bar first
-      citySel.length = 1; // remove all options bar first
-      zipSel.length = 1; // remove all options bar first
-
-      if (this.selectedIndex < 1)
-        return; // done
-
-      for (var state in countryStateInfo[this.value]) {
+      for (var state in countryStateInfo["USA"]) {
         stateSel.options[stateSel.options.length] = new Option(state, state);
       }
-    }
+    //};
 
     //State Changed
     stateSel.onchange = function () {
@@ -286,7 +285,7 @@
       for (var city in countryStateInfo["USA"][this.value]) {
         citySel.options[citySel.options.length] = new Option(city, city);
       }
-    }
+    };
 
     //City Changed
     citySel.onchange = function () {
