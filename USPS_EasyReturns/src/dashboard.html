@@ -26,6 +26,86 @@
 </head>
 
 <body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+  $(document).ready(function() {
+
+    // $("#myform").submit(function() { // intercepts the submit event
+
+    //   $.ajax({
+    //     type: “POST”,
+    //   url: ‘template/’,
+    //   headers: {‘X-CSRFToken’: ‘{{ csrf_token }}‘},
+    //   data: {
+    //     name: $(‘#templateName’).val(),
+    //       title: $(‘#templateTitle’).val(),
+    //       message: $(‘#templateMessage’).val()
+    //   },
+    //   beforeSend: function () {
+    //     M.toast({html: ‘Creating template’, classes: ‘rounded’, displayLength: 1000});
+    //   },
+    //   success: function (response) {
+    //     M.toast({
+    //       html: ‘Created ’ + response[‘name’] + ' template’,
+    //     classes: ‘rounded’,
+    //     displayLength: 2000
+    //   });
+    //     $(‘#templateList’).append(
+    //                    ‘<a id=“template_’ + response[“id”] + ‘” data-title=“’ + response[‘title’] + ‘” data-message=“’ + response[‘message’] + ‘“’
+    //                    + ‘class=“collection-item transparent black-text waves-effect” onclick=“selectTemplate(\‘’ + response[‘title’] + ‘\’,\‘’ + response[‘message’] + ‘\’)“>'
+    //     + response[‘name’]
+    //     + ‘</a>’
+    //   );
+    //     $(‘#id_title’).val(response[‘title’]);
+    //     $(‘#id_title’).focus();
+    //     $(‘#id_message’).val(response[‘message’]);
+    //     $(‘#id_message’).focus();
+    //   }
+    // });
+
+
+      // $("#myForm").submit(function() {
+      //   $.ajax({
+      //     type: "POST",
+      //     url: "http://localhost:3000/cost",
+      //     data: {
+      //       fromzip: $("zipSel").val()
+      //     },
+      //     success: function(response) {
+      //       window.location.href = "results.html";
+      //     }
+      //   });
+      // });
+
+
+      // $.ajax({ // make an AJAX request
+      //   type: "POST",
+      //   url: "http://localhost:5000/result", // it's the URL of your component B
+      //   data:
+      //     {
+      //       fromzip: $("#zipSel").val()
+      //       // title: $(‘#templateTitle’).val(),
+      //       // message: $(‘#templateMessage’).val()
+      //     }
+      //
+      //     // $("#myform").serialize(), // serializes the form's elements
+      //   success: function(data)
+      //   {
+      //     console.log("IM HERE");
+      //     // show the data you got from B in result div
+      //     console.log(data);
+      //     $("#result").html(data);
+      //   }
+      // });
+      e.preventDefault(); // avoid to execute the actual submit of the form
+    });
+
+  });
+
+
+
+</script>
+
 <!--[if lte IE 9]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 <![endif]-->
@@ -82,7 +162,8 @@
       8-columns-wide on medium screens,
       12-columns-wide on small screens  -->
           <div class="row">
-            <form class="col s10" action="http://localhost:5000/result" method="POST">
+            <!--<form class="col s10" action="http://localhost:5000/result" method="POST">-->
+            <form class="col s10" id="myform" action="http://localhost:3000/cost" method="POST">
 
                   <div style="margin-top: 50px; padding: 20px" class="col s12 indigo darken-4 white-text">From</div>
 
@@ -177,6 +258,11 @@
                 <button class="waves-effect waves-light btn-large indigo darken-4 white-text" type="submit">Generate Code</button>
               </div>
             </form>
+
+            <div id="result">
+
+              Results :
+            </div>
           </div>
       </div>
     </div>
@@ -213,7 +299,7 @@
   var countryStateInfo = {
     "USA": {
       "California": {
-        "Los Angeles": ["90001", "90002", "90003", "90004"],
+        "Los Angeles": ["92253", "92202", "92247", "92248"],
         "San Diego": ["92093", "92101", "92101", "92101"],
         "Nevada City": ["92033", "92201", "92101", "92601"],
         "Oakdale": ["92077", "92166", "92155", "92144"],
